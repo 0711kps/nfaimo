@@ -1,0 +1,14 @@
+<div id="explorer-menu" class="z2">
+  <div id="act-dl" class="explorer-action" @mouseenter="showTooltip('下載單個檔案或打包多個檔案下載')" @mouseleave="hideTooltip" @click="downloadFile">
+    下載
+  </div>
+  <div id="act-rename" class="explorer-action" @mouseenter="showTooltip('重新命名單一檔案或批次修改')" @mouseleave="hideTooltip" @click="editFileTitle">
+    重新命名
+  </div>
+  <div id="act-rm" class="explorer-action" @mouseenter="showTooltip('刪除選取的檔案')" @mouseleave="hideTooltip" @click="removeFile">
+    刪除
+  </div>
+  <div id="act-tag" class="explorer-action" @mouseenter="showTooltip('編輯檔案的標籤')" @mouseleave="hideTooltip" @click="openDocTagEditor()">
+    編輯標籤
+  </div>
+</div>

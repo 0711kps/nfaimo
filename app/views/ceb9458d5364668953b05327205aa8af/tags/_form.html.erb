@@ -1,0 +1,17 @@
+<%= form_for(ceb9458d5364668953b05327205aa8af_tag) do |f| %>
+  <% if ceb9458d5364668953b05327205aa8af_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ceb9458d5364668953b05327205aa8af_tag.errors.count, "error") %> prohibited this ceb9458d5364668953b05327205aa8af_tag from being saved:</h2>
+
+      <ul>
+      <% ceb9458d5364668953b05327205aa8af_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div id="edit-member-form" class="underground z2">
+  <svg class="kill-btn" viewBox="0 0 80 80" @click="closeMemberForm">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <label id="edit-title" for="edit-target">{{edit.title}}</label>
+  <input id="edit-target" type="text" :value="edit.value" @keydown.esc="closeMemberForm" @keydown.enter="updateMember(edit.id, edit.col, edit.value, edit.token)">
+</div>

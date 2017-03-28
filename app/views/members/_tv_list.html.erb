@@ -1,0 +1,11 @@
+<div id="tv-list">
+  <div class="tv-container" :data-id="tv.id" :data-title="tv.title" v-for="tv in tubeVids">
+    <span class="tv-title" :title="tv.title">
+      {{tv.title}}
+    </span>
+    <div class="a-tv" :style="{'background-image': 'url(\'https://img.youtube.com/vi/'+tv.vid+'/mqdefault.jpg\')'}" @click="playTube(tv.vid)" @mouseover="showTooltip('播放「'+tv.title+'」')" @mouseleave="hideTooltip">
+    </div>
+  </div>
+</div>
+<div id="tube-page-left" class="change-page" @mouseenter="showTooltip('YouTube列表 上一頁')" @mouseleave="hideTooltip" @click="prevPage">＜</div>
+<div id="tube-page-right" class="change-page" @mouseenter="showTooltip('YouTube列表 下一頁')" @mouseleave="hideTooltip" @click="nextPage">＞</div>

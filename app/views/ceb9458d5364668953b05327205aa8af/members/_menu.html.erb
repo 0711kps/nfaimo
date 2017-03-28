@@ -1,0 +1,20 @@
+<div id="menu">
+  <svg class="menu-option now" data-order=0>
+    <use xlink:href="/assets/icon/icons.svg#member"></use>
+  </svg>
+  <span id="memb-count" class="data-count"><%= @counters[0]%></span>
+  <svg class="menu-option" data-order=1>
+    <use data-target="files-content" xlink:href="/assets/icon/icons.svg#files"></use>
+  </svg>
+    <span id="doc-count" class="data-count"><%= @counters[1]%></span>
+  <svg class="menu-option" data-order=2>
+    <use data-target="tube-content" xlink:href="/assets/icon/icons.svg#youtube"></use>
+  </svg>
+    <span id="tube-count" class="data-count"><%= @counters[2]%></span>
+  <svg id="logo">
+    <use data-target="tube-content" xlink:href="/assets/icon/icons.svg#logo"></use>
+  </svg>
+  <svg id="site-name" viewBox="0 0 2000 200">
+    <use xlink:href="/assets/icon/icons.svg#site-name"></use>
+  </svg>
+</div>

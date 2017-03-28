@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>消防署資訊室內部網站</title>
+    <%= csrf_meta_tags %>
+    <%= get_assets params[:controller] %>
+    <link href="<%= image_path('nfaimo-logo.ico') %>" rel="shortcut icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <meta name="author" content="Donny Shye">
+    <meta name="email" content="0711kps@gmail.com">
+    <meta name="description" content="Old NFAIMO is bad, try this!">
+    <meta name="keywords" content="Information Management Office. National Fire Agency. Ministry of Interior">
+    <meta name="application-name" content="消防署資訊室網站">
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

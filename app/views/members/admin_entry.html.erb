@@ -1,0 +1,7 @@
+<div id="login-form">
+  <%= form_tag "/admin_login", method: "POST" do %>
+      <%= text_field :account, nil, id: 'entry-account', class: 'entry-field', placeholder: '帳號(分機)', required: true %>
+      <%= password_field_tag :password, nil, id: 'entry-password',class: 'entry-field', placeholder: '密碼', required: true %>
+      <%= submit_tag "登入" %>
+  <% end %>
+</div>

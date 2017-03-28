@@ -1,0 +1,5 @@
+<div id="tv-list">
+  <tube v-for="tv in tubeVids" :id="tv.id" :title="tv.title" :token="token" :vid="tv.vid" :key="tv.id" ></tube>
+</div>
+<div id="tube-page-left" class="change-page" @mouseenter="showTooltip('YouTube列表 上一頁')" @mouseleave="hideTooltip" @click="prevPage">＜</div>
+<div id="tube-page-right" class="change-page" @mouseenter="showTooltip('YouTube列表 下一頁')" @mouseleave="hideTooltip" @click="nextPage">＞</div>

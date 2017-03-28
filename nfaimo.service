@@ -1,0 +1,9 @@
+[Unit]
+Description=NFAIMO
+
+[Service]
+ExecStart=/bin/bash -c "cd /home/nfaimo/nfaimo;/home/nfaimo/.rbenv/versions/2.4.1/bin/passenger start -e production --port 80"
+ExecStop=/bin/bash -c "/home/nfaimo/.rbenv/versions/2.4.1/bin/passenger stop --port 80"
+
+[Install]
+WantedBy=multi-user.target

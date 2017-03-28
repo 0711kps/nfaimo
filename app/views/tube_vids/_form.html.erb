@@ -1,0 +1,17 @@
+<%= form_for(tube_vid) do |f| %>
+  <% if tube_vid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tube_vid.errors.count, "error") %> prohibited this tube_vid from being saved:</h2>
+
+      <ul>
+      <% tube_vid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

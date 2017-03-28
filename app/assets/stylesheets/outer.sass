@@ -1,0 +1,345 @@
+@keyframes circle-run
+  0%
+    stroke-dasharray: 0,0,0,440
+  50%
+    stroke-dasharray: 0,0,440,440
+  100%
+    stroke-dasharray: 0,440,0,440
+@keyframes circle-spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+@keyframes circle-color
+  0%
+    stroke: hsl(0,100%,35%)
+  14%
+    stroke: hsl(60,100%,35%)
+  28%
+    stroke: hsl(120,100%,35%)
+  42%
+    stroke: hsl(180,100%,35%)
+  56%
+    stroke: hsl(300,100%,35%)
+  71%
+    stroke: hsl(0,0%,71%)
+  85%
+    stroke: hsl(44,71%,41%)
+  100%
+    stroke: hsl(0,0%,71%)
+$color1: hsl(20, 0%, 20%)
+body
+  min-height: 100vh
+  position: relative
+  user-select: none
+  -moz-user-select: none
+  background-image: url('/assets/bg.jpg')
+  overflow-x: hidden
+  color: white
+  background-size: cover
+  background-attachment: fixed
+  background-repeat: no-repeat
+  use
+    pointer-events: none 
+  &::-webkit-scrollbar
+    width: 12px
+  &::-webkit-scrollbar-track
+    -webkit-box-shadow: inset 0 0 18px pink
+    background-color: hsla(0, 0%, 0%, 0.5)
+  &::-webkit-scrollbar-thumb
+    border-radius: 20px
+    background-color: red
+    -webkit-box-shadow: inset 0 0 18px pink
+  .z1
+    box-shadow: none
+    z-index: 1
+    transform: scale(1)
+  .z2
+    box-shadow: 0  4px 4px $color1
+    z-index: 2
+    transform: scale(1.05)
+  .z3
+    box-shadow: 0  8px 12px $color1
+    z-index: 3
+    transform: scale(1.1)
+  .z4
+    box-shadow: 0  12px 20px $color1
+    z-index: 4
+    transform: scale(1.15)
+  .z5
+    box-shadow: 0 16px 28px $color1
+    z-index: 5
+    transform: scale(1.2)
+  svg.z1
+    filter: none
+    box-shadow: none
+    z-index: 1
+    transform: scale(1)
+  svg.z2
+    filter: drop-shadow(0 4px 4px $color1)
+    box-shadow: none
+    z-index: 2
+    transform: scale(1.05)
+  svg.z3
+    filter: drop-shadow(0 8px 12px $color1)
+    box-shadow: none
+    z-index: 3
+    transform: scale(1.1)
+  svg.z4
+    filter: drop-shadow(0 12px 20px $color1)
+    box-shadow: none
+    z-index: 4
+    transform: scale(1.15)
+  svg.z5
+    filter: drop-shadow(0 16px 28px $color1)
+    box-shadow: none
+    z-index: 5
+    transform: scale(1.2)
+#loading-icon
+  opacity: 0
+  width: 15vh
+  height: 15vh
+  position: fixed
+  right: 0
+  bottom: 0
+  pointer-events: none
+  transition: opacity 300ms
+  will-change: opacity
+  #red-circle
+    transform-origin: center center
+    stroke-width: 20px
+    fill: none
+    stroke: hsl(0,100%,64%)
+    stroke-dasharray: 0,0,0,411
+    animation: circle-run 3s infinite, circle-spin 7s infinite, circle-color 11s infinite
+  &.visible
+    opacity: 1
+#menu
+  z-index: 1
+  position: fixed
+  width: 102vw
+  height: 10vh
+  background-color: hsla(0, 0%, 0%, 0.4)
+  margin-left: -2vw
+  margin-top: -8px
+  text-align: center
+  padding-bottom: 1px
+  border-bottom: 4px solid black
+  #logo
+    transition: height 500ms, width 500ms
+    will-change: height, width
+    cursor: default
+    left: 0px
+    position: fixed
+    margin: 0 0 0 1vw
+    width: 10vh
+    height: 10vh
+  #site-name
+    pointer-events: none
+    cursor: default
+    transition: width 500ms, height 500ms
+    will-change: width, height
+    position: fixed
+    left: calc(10vh + 1vw)
+    height: 10vh
+    text
+      transition: font-size 500ms
+      will-change: font-size
+      &.zh-name
+        font-size: 3vh
+        fill: hsl(0, 20%, 30%)
+      &.en-name
+        font-size: 1.8vh
+        fill: hsl(0, 10%, 40%)
+  .menu-option
+    transition: transform 500ms, fill 500ms, stroke 500ms, height 500ms, width 500ms, margin 500ms
+    will-change: transform, fill, stroke, height, width, margin
+    fill: hsl(0, 80%, 60%)
+    stroke: black
+    stroke-width: 2px
+    height: 9vh
+    width: 9vh
+    cursor: pointer
+    margin: 0 0.5vw
+    transform-origin: center center
+    &:first-of-type
+      margin-left: 80vw
+    use
+      transition: transform 200ms, opacity 200ms
+      will-change: transform, opacity
+    text
+      opacity: 0
+      transition: opacity 200ms
+      font-size: 2.25vh
+      font-weight: 900
+      fill: hsl(0, 0%, 30%)
+      stroke: none
+    &+.data-count
+      border: 4px solid black
+      font-size: 2vmin
+      background-color: gray
+      font-weight: 900
+      border-radius: 10px
+      padding: 0.4vmin 0.8vmin
+      margin-left: -5.5vmax
+      top: 0
+      position: absolute
+      pointer-events: none
+      transition: opacity 200ms
+      will-change: opacity
+    &.now
+      transform: scale(1.2)
+      will-change: transform
+      stroke: black
+      stroke-width: 10px
+#root-content
+  .main-content
+    width: 100vw
+    height: 82vh
+    left: 50vw
+    position: absolute
+    margin-top: 8vh
+    transition: transform 400ms ease-in-out
+    will-change: transform
+    &.current
+      display: block
+  &.first
+    #members-content
+      transform: translateX(-50%)
+    #files-content
+      transform: translateX(80%)
+    #tube-content
+      transform: translateX(150%)
+    #ext-content
+      transform: translateX(250%)
+  &.second
+    #members-content
+      transform: translateX(-150%)
+    #files-content
+      transform: translateX(-50%)
+    #tube-content
+      transform: translateX(80%)
+    #ext-content
+      transform: translateX(180%)
+  &.third
+    #members-content
+      transform: translateX(-250%)
+    #files-content
+      transform: translateX(-150%)
+    #tube-content
+      transform: translateX(-50%)
+    #ext-content
+      transform: translateX(50%)
+#tooltip
+  cursor: default
+  font-size: 4vh
+  text-align: center
+  color: white
+  position: fixed
+  bottom: 0
+  width: 102vw
+  margin-left: -2vw
+  height: auto
+  background-color: hsl(0,0%,30%)
+  z-index: 1
+#footer
+  position: fixed
+  width: fit-content
+  width: -moz-fit-content
+  right: 0
+  margin-left: -2vw
+  height: 4.5vh
+  bottom: 5.5vh
+  z-index: 5
+  svg
+    margin: 0 1vh
+    cursor: pointer
+    display: block
+    float: right
+    width: 4.5vh
+    height: 4.5vh
+    fill: hsl(0,0%,30%)
+    stroke: black
+    stroke-width: 8
+.underground
+  pointer-events: none
+#sys-msg
+  border-radius: 25px
+  transition: margin-left 1200ms cubic-bezier(.79,-0.05,.26,1.38), opacity 300ms
+  will-change: margin-left, opacity
+  margin-left: -100%
+  position: fixed
+  top: 10vh
+  left: 2vw
+  width: fit-content
+  height: 5.5vh
+  padding-top: 1.5vh
+  padding-right: 3.5vh
+  background-color: #0f7d0f
+  color: white
+  cursor: default
+  span
+    margin-left: 7.8vh
+    font-size: 3.5vh
+  #info-icon
+    height: 7.8vh
+    width: 7.8vh
+    top: 0
+    position: fixed
+    margin-left: -0.5vw
+  &.visible
+    margin-left: 0
+.popup
+  transition: opacity 500ms, transform 500ms, top 500ms
+  will-change: opacity, transform, top
+  opacity: 0
+  position: fixed
+  background-color: hsla(0,0%,20%,0.8)
+  border-radius: 10px
+  width: 80vw
+  height: 60vh
+  left: 10vw
+  top: 12vh
+  &.z2
+    filter: none
+    box-shadow: 0px 8px 12px hsl(0,0%,20%)
+  .popup-title
+    display: block
+    color: white
+    border-radius: 10px 10px 0px 0px
+    font-size: 4vh
+    text-align: center
+    background-color: hsl(5,65%,33%)
+  .popup-kill
+    cursor: pointer
+    width: 4vh
+    height: 4vh
+    right: 0.25vh
+    top: 0.25vh
+    position: absolute
+    stroke: gray
+    stroke-linecap: round
+    stroke-width: 10
+    transition: stroke 300ms
+    will-change: stroke
+    &:hover
+      stroke: white
+  &.active
+    opacity: 1
+  &.underground
+    pointer-event: none
+.change-page
+  position: fixed
+  font-size: 3rem
+  width: fit-content
+  width: -moz-fit-content
+  color: hsl(0, 0%, 60%)
+  background-color: hsla(0, 0%, 100%, 0.7)
+  transition: opacity 300ms
+  opacity: 0
+  pointer-events: none
+  cursor: pointer
+  border-radius: 10%
+  &.active
+    opacity: 1
+    pointer-events: unset

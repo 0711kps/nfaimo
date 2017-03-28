@@ -1,0 +1,4 @@
+<div class="tag-filter" v-for="tag in tags" :data-tag-id="tag.id" :data-doc-ids="tag.docIds" :data-next-tags="tag.docIds" @click="toggleFilter($event)" v-if="tag.docCount > 0">
+  <span class="tag-filter-name">{{tag.name}}</span>
+  <span class="tag-filter-count">{{tag.docCount}}</span>
+</div>

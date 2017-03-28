@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ceb9458d5364668953b05327205aa8af Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ceb9458d5364668953b05327205aa8af_tags.each do |ceb9458d5364668953b05327205aa8af_tag| %>
+      <tr>
+        <td><%= link_to 'Show', ceb9458d5364668953b05327205aa8af_tag %></td>
+        <td><%= link_to 'Edit', edit_ceb9458d5364668953b05327205aa8af_tag_path(ceb9458d5364668953b05327205aa8af_tag) %></td>
+        <td><%= link_to 'Destroy', ceb9458d5364668953b05327205aa8af_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ceb9458d5364668953b05327205aa8af Tag', new_ceb9458d5364668953b05327205aa8af_tag_path %>

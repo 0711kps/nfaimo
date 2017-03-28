@@ -1,0 +1,10 @@
+<div id="edit-tube" class="underground" @keydown.esc="closeEditTube" @keydown.enter="updateTube">
+  <svg class="kill-btn" viewBox="0 0 80 80" @click="closeEditTube">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <label id="edit-tube-title" for="edit-tube-target">
+    編輯影片標題
+  </label>
+  <input id="edit-tube-target" type="text">
+</div>

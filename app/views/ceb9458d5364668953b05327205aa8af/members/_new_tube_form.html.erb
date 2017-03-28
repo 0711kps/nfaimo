@@ -1,0 +1,10 @@
+<div id="new-tube-form" class="popup underground z3">
+  <label class="popup-title" for="tube-url">
+    新增YouTube連結
+  </label>
+  <svg class="popup-kill" viewBox="0 0 80 80" @click="closeTubeForm">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <input id="tube-url" type="text" placeholder='請輸入YouTube影片網址' @keydown.enter='createTube' @keydown.esc='closeTubeForm'>
+</div>

@@ -1,0 +1,84 @@
+.cTable
+  margin: 2vh 5vw 6vh
+  display: block
+  min-width: 630px
+  font-size: 1.1vmax
+  width: 94.5vw
+  margin-top: 10vh
+#member-list
+  overflow-y: scroll
+  height: 65vh
+.cTableRow
+  display: block
+  transition: opacity 200ms, transform 200ms
+  &>.cTableCell
+    background: hsl(0,0%,40%)
+    transition: opacity 200ms,transform 200ms
+    text-shadow: 0px 0px 1px black
+    font-weight: 900
+    user-select: all
+    -moz-user-select: all
+    &.resp
+      user-select: text
+      -moz-user-select: text
+    &:last-of-type
+      cursor: pointer
+      user-select: none
+      -moz-user-select: none
+    &.del
+      opacity: 0
+      transform: translateX(-15vw)
+  &:nth-child(odd)>.cTableCell
+    color: hsl(180, 80%, 70%)
+  .cTableCell:last-of-type:hover
+    background-color: hsl(0, 0%, 50%)
+  &:nth-child(even)>.cTableCell
+    color: hsl(20, 80%, 70%)
+  &:last-of-type
+    .cTableCell,.cTableHead
+      border-bottom-width: 4px
+  &.deleting
+    opacity: 0
+.cTableHeading
+  display: table-header-group
+.cTableBody
+  display: table-row-group
+.cTableFoot
+  display: table-footer-group
+.cTableCell
+  display: block
+  transition: background-color 200ms, text-shadow 200ms, color 200ms
+.cTableCell,.cTableHead
+  vertical-align: middle
+  border-style: solid
+  border-width: 4px 0 1px 4px
+  border-color: black
+  display: table-cell
+  text-align: left
+  &:nth-of-type(5)
+    border-right-width: 4px
+.cTableHead
+  background-color: hsl(120, 30%, 45%)
+  color: white
+  cursor: default
+.resp,.mail,.name,.title
+.resp
+  width: 46vw
+  white-space: normal
+.mail
+  width: 19vw
+.name
+  width: 7vw
+.title
+  width: 9vw
+.ext
+  width: 4vw
+.cTableHead
+  font-style: italic
+.mail-icon
+  cursor: pointer
+  display: inline-block
+  height: 2.6em
+  width: 1.7em
+  margin-right: 0.2rem
+  margin-bottom: -1.1em

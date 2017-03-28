@@ -1,0 +1,7 @@
+<div tabindex="1" id="logger-content" class="z5" @keydown.esc="closeLogger">
+  <svg id="kill-logger" class="kill-btn popup-kill" viewBox="0 0 80 80" @click="closeLogger">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <span v-for="log of logs">{{log.content}}</span>
+</div>

@@ -1,0 +1,339 @@
+#files-content
+  #tag-console-btn
+    stroke-width: 48px
+    left: 10vw
+  #tag-console
+    width: 40vw
+    height: 40vh
+    left: 30vw
+    top: 22vh
+    outline: none
+    padding-bottom: 1rem
+    #add-tag-field
+      width: 100%
+      text-align: center
+    #tag-console-list
+      width: 100%
+      height: calc(40vh - 6rem)
+      overflow-y: scroll
+      .console-tag
+        position: relative
+        display: block
+        width: 100%
+        cursor: default
+        .console-tag-name
+          font-size: 1.5rem
+        &:hover
+          background-color: hsl(0,0%,20%)
+          color: hsl(200, 80%, 60%)
+        .console-tag-action
+          line-height: 1.5rem
+          position: absolute
+          top: 0
+          cursor: pointer
+          text-decoration: underline
+          &.console-tag-rename
+            right: 8rem
+          &.console-tag-delete
+            right: 2rem
+  #doc-tag-editor
+    outline: none
+    .editor-tag
+      margin: 1rem 0.5rem
+      font-size: 2.5rem
+      cursor: pointer
+      color: hsl(0,0%,40%)
+      text-shadow: 0px 0px 1px hsl(0,0%,50%)
+      display: inline-block
+      .editor-tag-name
+        pointer-events: none
+      .editor-tag-count
+        pointer-events: none
+      &.tagged
+        color: hsl(0,0%,90%)
+        font-size: 3rem
+        font-weight: 900
+  #edit-file-title
+    width: 70vw
+    left: 15vw
+    height: 12vh
+    top: 25vh
+    input
+      width: 100%
+      text-align: center
+    em
+      left: calc(50% - 3rem)
+      position: absolute
+  #tag-zone
+    position: absolute
+    left: 1vw
+    top: 5vh
+    padding-top: 4rem
+    width: 13vw
+    height: calc(81.5vh - 4rem)
+    background-color: hsl(0,0%,40%)
+    border-radius: 10px
+    border: 4px solid black
+    overflow-y: scroll
+    .tag-filter
+      cursor: pointer
+      width: 100%
+      &:hover
+        background-color: hsl(0,0%,30%)
+      &.using
+        background-color: hsl(0,70%,60%)
+      .tag-filter-name
+        pointer-events: none
+      .tag-filter-count
+        pointer-events: none
+        border-radius: 10px
+        font-weight: 900
+        padding: 0.1rem 0.3rem
+        background-color: hsl(0,0%,20%)
+        position: absolute
+        right: 0
+  #file-explorer
+    width: 79vw
+    height: 80vh
+    background-color: hsl(0,0%,40%)
+    border-radius: 10px
+    border: 4px solid black
+    position: fixed
+    left: 15vw
+    top: 5vh
+    padding-top: 0.5vw
+    padding-left: 3vw
+    transition: top 500ms
+    will-change: top
+    overflow-x: hidden
+    overflow-y: scroll
+    display: flex
+    flex-wrap: wrap
+    align-content: flex-start
+    outline: none
+    #explorer-menu
+      background-color: hsl(0,0%,80%)
+      position: absolute
+      color: black
+      padding: 0.1rem 0.05rem
+      border: 2px solid hsl(0,0%,40%)
+      width: 10rem
+      transition: transform 200ms cubic-bezier(.24,.69,.66,1.34)
+      will-change: transform
+      transform-origin: left top
+      transform: scale(0)
+      pointer-events: none
+      &.active
+        pointer-events: unset
+        transform: scale(1)
+      .explorer-action
+        cursor: pointer
+        width: 100%
+        border-bottom: solid 1px hsl(0,0%,20%)
+        transition: width 200ms, padding-left 200ms
+        will-change: width, padding-left
+        &:last-of-type
+          border-bottom: none
+        &:hover
+          background-color: hsl(220,80%,40%)
+          color: hsl(0,0%,80%)
+          width: calc(100% - 1rem)
+          padding-left: 1rem
+    .file-container
+      display: block
+      width: fit-content
+      height: fit-content
+      margin: 1.2vw 1.45vw
+      word-break: break-all
+      .doc-icon
+        width: 5vw
+        height: 5vw
+        &+.icon-mask
+          width: 5.5vw
+          height: 5vw
+          margin-top: -5.25vw
+          margin-left: -0.25vw
+          border-radius: 5px
+      .doc-name-tag
+        width: 5vw
+        display: inline-block
+        color: black
+        text-align: center
+        border-radius: 5px
+        margin-top: 1vw
+        cursor: default
+      &.selected
+        .doc-icon
+          &+.icon-mask
+            background-color: hsla(220,100%,40%,0.8)
+        .doc-name-tag
+          background-color: hsla(220,100%,40%,0.8)
+          color: white
+  #doc-page-left,#doc-page-right
+    top: 45vh
+  #doc-page-left
+    left: calc(16vw + 4px)
+  #doc-page-right
+    left: calc(93vw + 4px)
+  #select-zone
+    opacity: 0
+    border-radius: 5px
+    border: 2px solid hsl(220,100%,70%)
+    background-color: hsla(220,100%,80%,0.5)
+    box-shadow: 0px 0px 5px hsl(220,100%,80%)
+    position: absolute
+    pointer-events: none
+    &.active
+      opacity: 1
+  #upload-zone
+    outline: none
+    position: fixed
+    opacity: 0
+    border-radius: 10px
+    transition: height 200ms, margin-top 200ms
+    will-change: height, margin-top
+    width: 40vw
+    height: 25vh
+    margin-left: 27vw
+    margin-top: 25vh
+    overflow: hidden
+    transition: opacity 200ms, height 500ms, margin-top 200ms, top 200ms
+    will-change: opacity, height, margin-top, top
+    #close-files
+      width: 4vh
+      height: 4vh
+      transition: stroke 500ms, top 500ms
+      will-change: stroke, top
+      cursor: pointer
+      position: absolute
+      right: 0
+      top: -10vh
+      line
+        stroke: gray
+        stroke-width: 10
+        stroke-linecap: round
+        transition: stroke 300ms
+        will-change: stroke
+    &.active
+      opacity: 1
+      #close-files
+        top: 0
+        &:hover
+          line
+            stroke: white
+    &.underground
+      pointer-events: none
+    &.uploading
+      height: 80vh
+      margin-top: -5vh
+    hr
+      background-color: gray
+      height: 6px
+      border: none
+      position: relative
+      top: 2vh
+      margin-bottom: 5vh
+    #clear-history
+      float: right
+      font-size: 1rem
+      border-radius: 5px
+      outline: none
+      cursor: pointer
+      background-color: hsla(0,0,0%,0.5)
+      color: white
+    #drop-to-upload
+      height: 20vh
+      width: 20vh
+      border-radius: 10px
+      transition: background 500ms
+      will-change: background
+      margin-left: calc(20vw - 10vh)
+      svg
+        width: 100%
+        fill: white
+        stroke-width: 4
+        stroke: rgba(0,0,0,.8)
+        position: fixed
+        height: 20vh
+        &#upload-icon
+          cursor: pointer
+          transition: fill 500ms,transform 500ms, top 500ms, stroke 500ms
+          will-change: fill, transform, top, stroke
+          position: relative
+          &.cantsee
+            transform: translateX(-50%) scale(0)
+          &.drag-over
+            fill: rgba(0,0,0,.8)
+            stroke: white
+            stroke-width: 10
+      #tutorial-div
+        transition: transform 500ms
+        will-change: transform
+        position: fixed
+        #hand
+          transform: translate(17vw,-29vh) scale(1)
+          transition: transform 500ms
+          will-change: transform
+          &.before-anime
+            transform: translate(50vw,10vh) scale(1)
+          &.cantsee
+            transform: translate(17vw,-29vh) scale(0)
+        #file
+          transform: translate(13vw,-26vh) scale(1)
+          transition: transform 500ms
+          will-change: transform
+          transform-origin: center bottom
+          &.before-anime
+            transform: translate(46vw,13vh) scale(1)
+          &.cantsee
+            transform: translate(13vw,-26vh) scale(0)
+    #upload-progress
+      width: 40vw
+      height: 50vh
+      overflow-x: hidden
+      overflow-y: auto
+      display: flex
+      flex-flow: row wrap
+      .upload-item
+        flex: 0 0 100%
+        height: 10vw
+        background-color: hsla(0,0%,60%,0.6)
+        border-radius: 10px
+        margin-bottom: 0.5rem
+        &:last-of-type
+          margin-bottom: 0
+        .file-type
+          width: 10vw
+          height: 10vw
+          float: left
+          cursor: default
+          stroke: hsl(0,0%,20%)
+          stroke-width: 1px
+        .item-status
+          width: 4vw
+          height: 4vw
+          margin-top: 3vw
+          float: right
+          cursor: default
+          border-radius: 50%
+        .item-name
+          text-shadow: 0px 0px 1px black
+          float: left
+          position: relative
+          top: 3vh
+          white-space: nowrap
+          width: 22vw
+          text-overflow: ellipsis
+          cursor: default
+          overflow: hidden
+        .item-size
+          text-shadow: 0px 0px 1px black
+          float: left
+          clear: right
+          position: relative
+          bottom: 4vh
+          white-space: nowrap
+          width: 22vw
+          text-overflow: ellipsis
+          cursor: default
+          overflow: hidden

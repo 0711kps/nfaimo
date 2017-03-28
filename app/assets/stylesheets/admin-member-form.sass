@@ -1,0 +1,144 @@
+@mixin edit-basic
+  transition: opacity 200ms, transform 500ms,top 200ms
+  opacity: 0
+  background-color: hsla(0,0%,8%,0.8)
+  border-radius: 10px
+  position: fixed
+  left: 50vw
+  top: 50vh
+  transform: translate(-50%,-20%)
+@mixin edit-basic-hover
+  opacity: 1
+  transform: translate(-50%,-150%)
+  z-index: 2
+@mixin edit-basic-title
+  color: white
+  border-top-left-radius: 10px
+  border-top-right-radius: 10px
+  font-size: 4vh
+  display: block
+  text-align: center
+  width: 100%
+  background-color: hsl(5,65%,33%)
+@mixin edit-basic-target
+  text-align: center
+  font-size: 4vh
+  margin: .5em
+// mixin end
+input, textarea
+  transition: background-color 200ms
+  color: white
+  background-color: transparent
+  outline: none
+  border-style: none none solid none
+  border-color: hsla(0,0%,100%,0.8)
+  width: 46vw
+  height: 4vh
+  font-size: 4vh
+  &:focus
+    background-color: hsla(20, 60%, 40%, 0.8)
+textarea
+  margin-top: 3vh
+  text-align: center
+  height: 28vh
+  width: 45vw
+  resize: none
+  border-style: none solid solid solid
+  &::placeholder
+    color: hsla(0,0%,100%,0.8)
+#edit-member-form
+  +edit-basic
+  &.active
+    +edit-basic-hover
+  #edit-title
+    +edit-basic-title
+  #edit-target
+    +edit-basic-target
+  em
+    color: white
+    cursor: default
+#edit-member-resp
+  +edit-basic
+  &.active
+    transform: translate(-50%,-100%)
+  label
+    color: white
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    font-size: 4vh
+    display: block
+    text-align: center
+    width: 100%
+    background-color: hsl(5,65%,33%)
+  #edit-resp
+    text-align: center
+    font-size: 4vh
+    margin: .5em
+    height: 30vh
+    width: 32vw
+    resize: none
+    border: 1px white dashed
+    display: block
+  p
+    text-align: center
+    color: pink
+    cursor: default
+  &.active
+    opacity: 1
+    z-index: 2
+#new-member-form
+  transition: opacity 200ms, transform 500ms, top 200ms
+  opacity: 0
+  position: fixed
+  background-color: hsla(0,0%,20%,0.95)
+  left: 50vw
+  top: 0
+  transform: translate(-50%,-40%)
+  width: 75vw
+  height: 80vh
+  border-radius: 10px
+  input
+    transition: border 500ms, background 500ms
+    margin: 0 8.5vw
+    padding-left: 2vw
+    width: 52vw
+    text-align: center
+    #name
+      margin-top: 3vh
+    &:placeholder-shown
+      border-color: hsl(0,100%,67%)
+    &::placeholder
+      text-align: center
+      color: hsla(0,0%,100%,0.8)
+  textarea
+    transition: border 200ms, background 200ms
+    height: 18vh
+    width: 59vw
+    margin: 2vh 5vw 0 5vw
+    &:placeholder-shown
+      border-color: #f55
+  .send-icon
+    margin-top: 5vh
+    transition: transform 500ms, fill 500ms
+    fill: hsl(0, 80%, 60%)
+    width: 16vh
+    height: 16vh
+    cursor: pointer
+  &.active
+    opacity: 1
+    transform: translate(-50%,0%)
+.kill-btn
+  width: 4vh
+  height: 4vh
+  right: .25vh
+  top: .25vh
+  position: fixed
+  cursor: pointer
+  line
+    stroke-linecap: round
+    stroke: gray
+    stroke-width: 10
+    transition: stroke 300ms
+  &:hover
+    line
+      stroke: white

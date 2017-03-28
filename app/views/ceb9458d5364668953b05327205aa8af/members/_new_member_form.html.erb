@@ -1,0 +1,21 @@
+<div id="new-member-form" class="popup underground z3">
+  <div width="75vw">
+    <label id="new-mem-title" class="popup-title" for="name">新增成員</label>
+    <svg class="kill-btn popup-kill" viewBox="0 0 80 80" @click="closeMemberForm">
+      <line x1="20" y1="20" x2="60" y2="60"></line>
+      <line x1="60" y1="20" x2="20" y2="60"></line>
+    </svg>
+    <input type="text" id="name" required @keypress.enter="createMember(edit.token)" @keydown.esc="closeMemberForm" placeholder="姓名">
+    <input type="text" name="title" id="title" required @keypress.enter="createMember(edit.token)" @keydown.esc="closeMemberForm" placeholder="職稱">
+    <textarea id="resp" name="resp" required @keydown.ctrl.enter="createMember(edit.token)" placeholder="Enter換行，Ctrl+Enter送出" @keydown.esc="closeMemberForm"></textarea>
+    <br>
+    <br>
+    <input type="text" id="ext" name="ext" required pattern="\w{4}" @keypress.enter="createMember(edit.token)" @keydown.esc="closeMemberForm" placeholder="分機">
+    <input type="text" id="mail" name="mail" required pattern="\w+@\w+(\.\w+){1,3}" @keypress.enter="createMember(edit.token)" @keydown.esc="closeMemberForm" placeholder="信箱">
+    <center>
+      <svg @click="createMember(edit.token)" class="send-icon" @mouseenter="showTooltip('送出成員資訊')" @mouseleave="hideTooltip">
+        <use xlink:href="/assets/icon/icons.svg#send-icon"></use>
+      </svg>
+    </center>
+  </div>
+</div>

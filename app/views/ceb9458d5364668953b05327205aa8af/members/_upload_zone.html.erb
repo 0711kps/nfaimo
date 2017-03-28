@@ -1,0 +1,21 @@
+<div tabindex='1' id="upload-zone" class="z2 underground popup" @keydown.esc="close">
+  <label class="popup-title">
+    上傳檔案
+  </label>
+  <!--檔案上傳區-->
+  <div id="drop-to-upload">
+    <svg id="upload-icon" @mouseenter="showTooltip('請點擊選取檔案或將檔案拖曳至此處以上傳')" @mouseleave="hideTooltip">
+      <use id="upload-icon-use" xlink:href="/assets/icon/icons.svg#upload-icon"></use>
+    </svg>
+  </div>
+  <hr>
+  <button id="clear-history">
+    清除已經完成的任務(不會刪除檔案)
+  </button>
+  <div id="upload-progress">
+  </div>
+  <svg id="close-files" viewBox="0 0 80 80" @click='close'>
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+</div>

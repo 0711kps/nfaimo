@@ -1,0 +1,17 @@
+<div tabindex='1' id="tag-console" class="popup underground" @keydown.esc="closeTagConsole">
+  <label class="popup-title" for="add-tag-field">
+    標籤控制台
+  </label>
+  <svg  id="tag-console-kill" class="popup-kill" viewBox="0 0 80 80" @click="closeTagConsole">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <input id="add-tag-field" type="text" placeholder="輸入標籤後Enter送出" @keydown.enter="createTag" >
+  <div id="tag-console-list">
+    <div class="console-tag" :data-tag-id="tag.id" v-for="tag in tags">
+      <span class="console-tag-name">{{tag.name}}</span>
+      <span class="console-tag-rename console-tag-action" @click="renameTag($event)">重新命名</span>
+      <span class="console-tag-delete console-tag-action" @click="delTag($event)">刪除標籤</span>
+    </div>
+  </div>
+</div>

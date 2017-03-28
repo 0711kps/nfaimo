@@ -1,0 +1,15 @@
+<div tabindex="1" id="doc-tag-editor" class="popup underground" @keydown.esc="closeDocTagEditor">
+  <label id="doc-tag-title" class="popup-title">
+    編輯?的標籤
+  </label>
+  <svg id="doc-tag-kill" class="popup-kill" viewBox="0 0 80 80" @click="closeDocTagEditor">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <div class="editor-tag" :data-tag-id="tag.id" v-for="tag in tags" @click="toggleTag($event)" @mouseenter="showTooltip('幫這個檔案貼上或移除標籤「'+tag.name+'」')" @mouseleave="hideTooltip">
+    <span class="editor-tag-name" >
+      {{tag.name}}
+    </span>
+    <span class="editor-tag-count"></span>
+  </div>
+</div>

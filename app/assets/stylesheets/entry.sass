@@ -1,0 +1,45 @@
+@font-face
+  font-family: 'Roboto'
+  src: font-url('Roboto-Black.ttf')
+body
+  font-family: Roboto, sans-serif
+  background-image: url('/assets/bg.jpg')
+  background-size: cover
+  background-attachment: fixed
+  background-repeat: no-repeat
+#login-form
+  position: absolute
+  width: fit-content
+  width: -moz-fit-content
+  padding: 2rem 1rem
+  border-radius: 10px
+  background-color: hsl(0, 0%, 40%)
+  left: 50vw
+  top: 50vh
+  transform-origin: center center
+  transform: translate(-50%, -50%)
+  .entry-field
+    display: block
+    margin-bottom: 1rem
+    outline: none
+    border-radius: 5px
+    font-size: 1.5rem
+    transition: background-color 300ms, width 300ms
+    &#entry-account
+      width: 8rem
+    &#entry-password
+      width: 26rem
+    &:focus
+      background-color: orange
+  input[type="submit"]
+    font-size: 3rem
+    background-color: white
+    color: hsl(20, 80%, 40%)
+    border-color: orange
+    outline: none
+    border-radius: 10px
+    cursor: pointer
+    transition: background-color 300ms, color 300ms
+    &:hover, &:focus
+      background-color: orange
+      color: white

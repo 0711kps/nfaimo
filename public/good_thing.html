@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>這是一個做給情報站廠商參考的DEMO</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <style>
+    .arrow{
+      width: 1.2em;
+      height: 1.2em;
+      float: left;
+      fill: black;
+      cursor: pointer;
+      transition: fill 500ms;
+    }
+    .arrow.unavailable{
+      cursor: default;
+      fill: gray;
+    }
+    #mask{
+      width: 45em;
+      overflow-x: hidden;
+      float: left;
+      user-select: none;
+    }
+    #tabs_list{
+      display: inline-block;
+      width: 80em;
+      padding: 0.5em 0;
+      transition: transform 500ms;
+    }
+    .tab{
+      cursor: pointer;
+      text-shadow: 0px 0px 1px black, 0px 0px 1px black;
+      color: white;
+      padding: 0 0.5em;
+      transition: text-shadow 500ms, color 500ms;
+    }
+    .tab:first-of-type{
+      padding: 0 0.5em 0 0;
+    }
+    .tab:last-of-type{
+      padding: 0 0 0 0.5em;
+    }
+    .tab:hover{
+      text-shadow:0px 0px 1px gray, 0px 0px 1px gray;
+      color: black;
+    }
+    .tab.active{
+      text-shadow: 0px 0px 1px red, 0px 0px 1px red;
+      color: orange;
+      cursor: not-allowed;
+    }
+    #gallery{
+      width: 80em;
+      height: 80em;
+      border-radius: 20px;
+      user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      first_tab = document.querySelector('.tab')
+      gallery = document.querySelector('#gallery')
+      larw = document.querySelector('#left')
+      rarw = document.querySelector('#right')
+      first_tab.classList.add('active')
+      gallery.src = first_tab.dataset.url
+      tabs_pos = 0
+      show = (src)=>{
+        if(!document.querySelector("[data-url='"+src+"']").classList.contains('active')){
+          if(document.querySelectorAll('.active').length > 0){
+            document.querySelector('.active').classList.remove('active')
+          }
+          gallery.src=src
+          document.querySelector("[data-url='"+src+"']").classList.add('active')
+        }
+      }
+      handle_arrow = ()=>{
+        switch(tabs_pos){
+          case 0:
+            larw.classList.add('unavailable')
+            break;
+          case -20:
+            larw.classList.remove('unavailable')
+            rarw.classList.remove('unavailable')
+            break;
+          case -40:
+            rarw.classList.add('unavailable')
+            break;
+        }
+      }
+      slide_left = ()=>{
+        if(tabs_pos < 0){
+          tabs_pos+=20
+          document.querySelector('#tabs_list').style='transform: translateX('+tabs_pos+'%)'
+          handle_arrow()
+        }
+      }
+      slide_right = ()=>{
+        if(tabs_pos > -40){
+          tabs_pos-=20
+          document.querySelector('#tabs_list').style='transform: translateX('+tabs_pos+'%)'
+          handle_arrow()
+        }
+      }
+    })
+  </script>
+</head>
+<body>
+  <div id='tab_menu'>
+    <svg id='left' class='arrow unavailable' onclick='slide_left()'>
+      <path d='M 10,10 l -10,5 l 10,5 z' '>
+      </path>
+    </svg>
+    <div id='mask'>
+      <div id='tabs_list' style='transform: translateX(0%)'>
+        <span class="tab" data-url='https://goo.gl/nQh7g5' onclick='show("https://goo.gl/nQh7g5")'>天氣概況</span>
+        <span class="tab" data-url='https://goo.gl/2L5Nrr' onclick='show("https://goo.gl/2L5Nrr")'>降雨觀測</span>
+        <span class="tab" data-url='https://goo.gl/aBzOQH' onclick='show("https://goo.gl/aBzOQH")'>示警燈號</span>
+        <span class="tab" data-url='https://goo.gl/imI6xg' onclick='show("https://goo.gl/imI6xg")'>道路封閉</span>
+        <span class="tab" data-url='https://goo.gl/0DNlNf' onclick='show("https://goo.gl/0DNlNf")'>供水即時資訊</span>
+        <span class="tab" data-url='https://goo.gl/449OOA' onclick='show("https://goo.gl/449OOA")'>維生管線_電力</span>
+        <span class="tab" data-url='https://goo.gl/SGP5k0' onclick='show("https://goo.gl/SGP5k0")'>停話資訊</span>
+        <span class="tab" data-url='https://goo.gl/diRIAw' onclick='show("https://goo.gl/diRIAw")'>綜合資訊</span>
+        <span class="tab" data-url='https://goo.gl/YrZsKa' onclick='show("https://goo.gl/YrZsKa")'>土石流警戒</span>
+        <span class="tab" data-url='https://goo.gl/d7h5xs' onclick='show("https://goo.gl/d7h5xs")'>水庫洩洪</span>
+        <span class="tab" data-url='https://goo.gl/BGWWrx' onclick='show("https://goo.gl/BGWWrx")'>颱風路徑</span>
+        <span class="tab" data-url="http://61.56.4.185/earth/#current/wind/surface/level/orthographic=-230.10,20.94,1397" onclick="show('http://61.56.4.185/earth/#current/wind/surface/level/orthographic=-230.10,20.94,1397')">動態大氣觀測</span>
+        <span class="tab" data-url='https://goo.gl/W6RZx3' onclick='show("https://goo.gl/W6RZx3")'>最新PGA分布</span>
+      </div>
+    </div>
+    <svg id='right' class='arrow' onclick='slide_right()'>
+      <path d='M 10,10 l 10,5 l -10,5 z'>
+      </path>
+    </svg>
+  </div>
+  <iframe id='gallery' src="" frameborder="0"></iframe>
+</body>
+</html>

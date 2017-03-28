@@ -1,0 +1,9 @@
+<div v-for="doc in docs" :data-title="doc.title" :data-tags="doc.taggedWith" :data-id="doc.id" class="file-container" @mousedown="select(0,$event)">
+  <svg class="doc-icon" @mousedown="select(1,$event)">
+    <use v-bind="{ 'xlink:href': doc.iconUrl  }" @mousedown="select(2,$event)"></use>
+  </svg>
+  <div class="icon-mask"></div>
+  <div class="doc-name-tag" @mousedown="select(1,$event)">
+    {{doc.title + doc.ext}}
+  </div>
+</div>

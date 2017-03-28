@@ -1,0 +1,32 @@
+<div id="root-content" class="first">
+  <%= render 'loading' %>
+  <%= render 'menu' %>
+  <div id="tooltip"></div>
+  <%= render 'footer' %>
+  <div id="members-content" class="main-content current z1">
+    <div class="cTable z1">
+      <%= render 'member_table_head' %>
+      <%= render 'member_table_cell' %>
+    </div>
+  </div>
+  <div id="files-content" class="main-content">
+    <%= form_tag '/dl', authenticity_token: true, id: 'download-form' do %>
+      <%= hidden_field_tag 'file_id' %>
+      <%= hidden_field_tag 'download_mode'%>
+    <% end %>
+    <div id="tag-zone">
+      <%= render 'tag_filters' %>
+    </div>
+    <div id="file-explorer" tabindex="1" @keydown.f2="editFileTitle" @keydown.delete="removeFile" @keydown.enter="downloadFile">
+      <div id="select-zone"></div>
+      <%= render 'explorer_menu' %>
+      <%= render 'doc_list' %>
+    </div>
+    <div id="doc-page-left" class="change-page" @mouseenter="showTooltip('檔案列表 上一頁')" @mouseleave="hideTooltip" @click="prevPage">＜</div>
+    <div id="doc-page-right" class="change-page" @mouseenter="showTooltip('檔案列表 下一頁')" @mouseleave="hideTooltip" @click="nextPage">＞</div>
+  </div>
+  <div id="tube-content" class="main-content">
+    <%= render 'tv_list' %>
+  </div>
+  <%= render 'sys_msg' %>
+  <%= render 'youtube_player' %>

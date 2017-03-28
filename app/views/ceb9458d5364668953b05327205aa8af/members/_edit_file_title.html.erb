@@ -1,0 +1,9 @@
+<div id="edit-file-title" class="popup z2 underground">
+  <svg class="popup-kill" viewBox="0 0 80 80" @click="closeEditFileTitle">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <label class="popup-title" for="new-file-title">重新命名</label>
+  <input id="new-file-title" type="text" placeholder="請輸入新的名稱" @keydown.enter="updateFileTitle" @keydown.esc="closeEditFileTitle"></input>
+  <em>Enter鍵送出</em>
+</div>

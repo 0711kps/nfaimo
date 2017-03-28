@@ -1,0 +1,9 @@
+<div id="edit-member-resp" class="underground textarea z2">
+  <svg class="kill-btn" viewBox="0 0 80 80" @click="closeMemberForm">
+    <line x1="20" y1="20" x2="60" y2="60"></line>
+    <line x1="60" y1="20" x2="20" y2="60"></line>
+  </svg>
+  <label for="edit-resp">編輯 業務內容</label>
+  <textarea id="edit-resp" :value="edit.value" @keydown.esc="closeMemberForm" @keydown.ctrl.enter="updateResp(edit.id, edit.value, edit.token)"></textarea>
+  <p>按下Ctrl + Enter送出</p>
+</div>
