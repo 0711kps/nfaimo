@@ -21,3 +21,14 @@
 ![](/thumbnail/1.png)
 ![](/thumbnail/2.png)
 ![](/thumbnail/3.png)
+DEMO 網址 https://nfaimo.herokuapp.com
+
+p.s
+
+當一定時間沒有人連線至DEMO網址，根據heroku運作機制
+該服務會進入睡眠狀態,此時網站用戶上傳的檔案會被清除
+只有資料庫記錄留下來,所以點擊下載會顯示錯誤在DEMO網站上是正常現象(剛上傳的檔案不在此限制)
+
+when heroku dyno idle for a specific time
+it will 'sleep‘ and delete all file you upload to the site(from website)
+and leave DB record, so you will get a error message when you download a 'rotten' file(lol)
