@@ -1,7 +1,7 @@
 rbenv install 2.4.2
 rbenv global 2.4.2
 rbenv local 2.4.2
-gem install rails 5.1.4
+gem install rails -v 5.1.4
 gem install passenger -v 5.1.11
 sudo `which passenger-install-nginx-module`
 scriptPath=`pwd`/`dirname $0`
